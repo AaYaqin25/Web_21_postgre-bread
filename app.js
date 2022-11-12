@@ -3,8 +3,17 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const { Pool} = require('pg')
+const pool = new Pool({
+  user: 'yaqin',
+  host: 'localhost',
+  database: 'datadb',
+  password: '123',
+  port: 5432,
+})
 
-var indexRouter = require('./routes/index');
+
+var indexRouter = require('./routes/index')(pool); // immidiately call
 var usersRouter = require('./routes/users');
 
 var app = express();
