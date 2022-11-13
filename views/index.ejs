@@ -8,6 +8,8 @@
   <br>
   <form action="" method="get">
     <input type="hidden" name="page" value="1">
+    <input type="hidden" name="sortBy" value="id">
+    <input type="hidden" name="sortMode" value="asc">
     <div class="container">
 
       <div class="row">
@@ -79,10 +81,26 @@
               <i class="fa-solid fa-<%= query.sortBy == 'id' ? query.sortMode == 'asc' ? 'sort-up' : 'sort-down' : 'sort'%>"></i> ID
             </a>
           </th>
-          <th scope="col">String</th>
-          <th scope="col">Integer</th>
-          <th scope="col">Float</th>
-          <th scope="col">Date</th>
+          <th scope="col">
+            <a href="<%= url.replace(`sortBy=${query.sortBy}`, `sortBy=string`).replace(`sortMode=${query.sortMode}`, `sortMode=${query.sortMode == 'asc' ? 'desc' : 'asc'}`)%>">
+              <i class="fa-solid fa-<%= query.sortBy == 'string' ? query.sortMode == 'asc' ? 'sort-up' : 'sort-down' : 'sort'%>"></i> ID
+            </a>
+          </th>
+          <th scope="col">
+            <a href="<%= url.replace(`sortBy=${query.sortBy}`, `sortBy=integer`).replace(`sortMode=${query.sortMode}`, `sortMode=${query.sortMode == 'asc' ? 'desc' : 'asc'}`)%>">
+              <i class="fa-solid fa-<%= query.sortBy == 'integer' ? query.sortMode == 'asc' ? 'sort-up' : 'sort-down' : 'sort'%>"></i> ID
+            </a>
+          </th>
+          <th scope="col">
+            <a href="<%= url.replace(`sortBy=${query.sortBy}`, `sortBy=float`).replace(`sortMode=${query.sortMode}`, `sortMode=${query.sortMode == 'asc' ? 'desc' : 'asc'}`)%>">
+              <i class="fa-solid fa-<%= query.sortBy == 'float' ? query.sortMode == 'asc' ? 'sort-up' : 'sort-down' : 'sort'%>"></i> ID
+            </a>
+          </th>
+          <th scope="col">
+            <a href="<%= url.replace(`sortBy=${query.sortBy}`, `sortBy=date`).replace(`sortMode=${query.sortMode}`, `sortMode=${query.sortMode == 'asc' ? 'desc' : 'asc'}`)%>">
+              <i class="fa-solid fa-<%= query.sortBy == 'date' ? query.sortMode == 'asc' ? 'sort-up' : 'sort-down' : 'sort'%>"></i> ID
+            </a>
+          </th>
           <th scope="col">Boolean</th>
           <th scope="col">Actions</th>
         </tr>
